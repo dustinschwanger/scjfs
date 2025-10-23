@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandusky County Department of Job & Family Services</title>
+
+  <!-- USWDS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.7.1/dist/css/uswds.min.css">
+
+  <!-- Font Awesome for better icon support -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="grid-container">
+      <div class="site-header__inner">
+        <div class="site-header__logo">
+          <a href="/" title="Home">
+            <img src="logo1.png" alt="Sandusky County Department of Job & Family Services">
+          </a>
+        </div>
+
+        <button class="site-header__mobile-toggle" id="mobileMenuToggle" aria-expanded="false" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="site-header__nav" id="mainNav" aria-label="Primary navigation">
+          <ul class="site-header__menu">
+            <li class="has-dropdown">
+              <button class="dropdown-toggle" aria-expanded="false">
+                Public Assistance
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/public-assistance/food-cash">Food & Cash Assistance</a></li>
+                <li><a href="/public-assistance/medicaid">Medicaid</a></li>
+              </ul>
+            </li>
+            <li><a href="/child-support">Child Support</a></li>
+            <li class="has-dropdown">
+              <button class="dropdown-toggle" aria-expanded="false">
+                Children Services
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/children-services/child-care">Child Care</a></li>
+                <li><a href="/children-services/protective-services">Child Protective Services</a></li>
+                <li><a href="/children-services/adoption-foster">Adoption & Foster Care</a></li>
+              </ul>
+            </li>
+            <li><a href="/workforce">Workforce Development</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="usa-hero hero-djfs" aria-label="Introduction">
+      <div class="grid-container">
+        <div class="hero-content-wrapper">
+          <div class="usa-hero__callout">
+            <p class="usa-hero__heading--alt">Committed To Helping Sandusky County</p>
+            <h1 class="usa-hero__heading">
+              Help Is Available For You, Your Kids, Your Family And More.
+            </h1>
+            <p class="hero-description">
+              The Sandusky County Department of Job and Family Services provides assistance with public benefits, child support, child protective services, foster care, adoption, and workforce development.
+            </p>
+            <div class="hero-actions">
+              <a class="usa-button usa-button--big" href="#apply">Apply for Benefits</a>
+              <a class="usa-button usa-button--outline usa-button--inverse usa-button--big" href="tel:1-800-883-8283">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                Call 1-800-883-8283
+              </a>
+            </div>
+          </div>
+
+          <!-- Chat Widget UI -->
+          <div class="chat-widget" id="chatWidget">
+            <div class="chat-widget__header">
+              <div class="chat-widget__header-content">
+                <i class="fas fa-comments chat-widget__header-icon"></i>
+                <div class="chat-widget__header-text">
+                  <h2 class="chat-widget__title">Ask Us Anything</h2>
+                  <p class="chat-widget__subtitle">Get instant help</p>
+                </div>
+              </div>
+              <div class="chat-widget__header-actions">
+                <div class="chat-widget__status">
+                  <span class="chat-widget__status-dot"></span>
+                  <span class="chat-widget__status-text">Online</span>
+                </div>
+                <button class="chat-widget__close-button" id="closeChatButton" aria-label="Close chat">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="chat-widget__messages">
+              <div class="chat-message chat-message--bot">
+                <div class="chat-message__avatar">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="chat-message__content">
+                  <div class="chat-message__bubble">
+                    Hello! How can I help you today? I can answer questions about our services, applications, and more.
+                  </div>
+                  <div class="chat-message__time">Just now</div>
+                </div>
+              </div>
+
+              <div class="chat-message chat-message--user">
+                <div class="chat-message__content">
+                  <div class="chat-message__bubble">
+                    How do I apply for food assistance?
+                  </div>
+                  <div class="chat-message__time">Just now</div>
+                </div>
+              </div>
+
+              <div class="chat-message chat-message--bot">
+                <div class="chat-message__avatar">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="chat-message__content">
+                  <div class="chat-message__bubble">
+                    You can apply for food assistance online or by calling 844-640-6446. Would you like me to guide you through the process?
+                  </div>
+                  <div class="chat-message__time">Just now</div>
+                </div>
+              </div>
+
+              <div class="chat-widget__typing">
+                <div class="chat-typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-widget__input">
+              <input type="text" class="chat-widget__input-field" placeholder="Type your question..." aria-label="Chat message input">
+              <button class="chat-widget__send-button" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Chat Bubble -->
+      <button class="chat-bubble-mobile" id="openChatButton" aria-label="Open chat">
+        <i class="fas fa-comments"></i>
+        <span class="chat-bubble-mobile__badge">1</span>
+      </button>
+    </section>
+
+    <!-- JavaScript for Chat Functionality -->
+    <script>
+      (function() {
+        const chatWidget = document.getElementById('chatWidget');
+        const openChatButton = document.getElementById('openChatButton');
+        const closeChatButton = document.getElementById('closeChatButton');
+
+        // Open chat when clicking mobile bubble
+        if (openChatButton) {
+          openChatButton.addEventListener('click', function() {
+            chatWidget.classList.add('chat-widget--mobile-open');
+            openChatButton.style.display = 'none';
+            document.body.style.overflow = 'hidden'; // Prevent body scroll when chat is open
+          });
+        }
+
+        // Close chat when clicking close button
+        if (closeChatButton) {
+          closeChatButton.addEventListener('click', function() {
+            chatWidget.classList.remove('chat-widget--mobile-open');
+            if (openChatButton) {
+              openChatButton.style.display = 'flex';
+            }
+            document.body.style.overflow = ''; // Restore body scroll
+          });
+        }
+
+        // Handle window resize - reset chat state
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            const width = window.innerWidth;
+
+            // On larger screens, ensure chat is visible and button is hidden
+            if (width > 640) {
+              chatWidget.classList.remove('chat-widget--mobile-open');
+              if (openChatButton) {
+                openChatButton.style.display = 'none';
+              }
+              document.body.style.overflow = '';
+            } else {
+              // On mobile, ensure button is visible if chat is closed
+              if (!chatWidget.classList.contains('chat-widget--mobile-open')) {
+                if (openChatButton) {
+                  openChatButton.style.display = 'flex';
+                }
+              }
+            }
+          }, 250);
+        });
+      })();
+    </script>
+
+    <!-- Report Fraud Alert -->
+    <section class="fraud-alert-section">
+      <div class="grid-container">
+        <div class="usa-alert usa-alert--warning usa-alert--slim">
+          <div class="usa-alert__body">
+            <h2 class="usa-alert__heading">Report Fraud</h2>
+            <p class="usa-alert__text">
+              The Ohio Department of Job and Family Services is committed to investigating allegations of fraud. If you suspect fraud may be occurring,
+              <a href="#fraud" class="usa-link">click here to report</a> or call <strong>(419) 334-3891</strong>. You may remain anonymous.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access-section">
+      <div class="grid-container">
+        <h2 class="section-heading">I Need Help With...</h2>
+        <ul class="usa-accordion usa-accordion--bordered quick-access-list">
+          <li>
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="child-support-services">
+              To Access Child Support Services
+            </button>
+            <div id="child-support-services" class="usa-accordion__content usa-prose">
+              <h4>Child Support Services</h4>
+
+              <div class="usa-alert usa-alert--info usa-alert--slim">
+                <div class="usa-alert__body">
+                  <p class="usa-alert__text">
+                    <strong>Effective October 1, 2021:</strong> The Child Support front desk and lobby are closed to the public. All Child Support business must be conducted through the drive-thru unless you have a scheduled appointment.
+                  </p>
+                </div>
+              </div>
+
+              <h5>Drive-Thru Hours</h5>
+              <p><strong>Monday–Friday:</strong> 8:00 AM – 4:30 PM</p>
+
+              <h5>Contact Us</h5>
+              <p>We encourage clients to reach Child Support caseworkers through:</p>
+              <ul>
+                <li><strong>Call Center:</strong> <a href="tel:419-334-2909">419-334-2909</a> (Monday, Wednesday, Friday, 8:00 AM – 4:00 PM)</li>
+                <li><strong>Web Portal:</strong> Message your caseworker directly at <a href="https://jfs.ohio.gov/ocs" target="_blank" rel="noopener noreferrer">jfs.ohio.gov/ocs</a></li>
+                <li><strong>Email:</strong> <a href="mailto:Sandusky-County-Child-Support@jfs.ohio.gov">Sandusky-County-Child-Support@jfs.ohio.gov</a></li>
+              </ul>
+
+              <h5>Make a Payment</h5>
+              <p>Payments can be made through the web portal, mobile app, or at <a href="https://oh.smartchildsupport.com" target="_blank" rel="noopener noreferrer">oh.smartchildsupport.com</a>.</p>
+              <p><em>Note: If you are scheduled for genetic testing, please follow the instructions sent with your testing notice.</em></p>
+
+              <h5>Children Services</h5>
+              <p>All Children Services clients should use the Children Services front desk and lobby. If staff is assisting another client, please wait at a safe distance and we will help you as soon as possible.</p>
+
+              <h5>Economic Impact Payments and Child Support</h5>
+              <p>If you owe child support debt, the IRS may offset your Economic Impact Payment. Spouses who do not owe child support can file an injured spouse claim.</p>
+              <ul>
+                <li><a href="https://www.irs.gov/coronavirus/economic-impact-payment-information-center" target="_blank" rel="noopener noreferrer">Treasury FAQ on Economic Impact Payments</a></li>
+                <li><a href="https://www.irs.gov/forms-pubs/about-form-8379" target="_blank" rel="noopener noreferrer">IRS Form 8379 - Injured Spouse Allocation</a></li>
+              </ul>
+
+              <h5>Payment Options</h5>
+
+              <h6>By Mail</h6>
+              <p>Send personal check, money order, or cashier's check to:</p>
+              <address>
+                Ohio CSPC<br>
+                PO Box 182372<br>
+                Columbus, OH 43218-2372
+              </address>
+              <p><em>Include your name and SETS or Social Security Number on the check.</em></p>
+
+              <h6>Online via Checking/Savings</h6>
+              <p>Pay at <a href="https://expertpay.com" target="_blank" rel="noopener noreferrer">expertpay.com</a> ($2.50 first-time registration fee)</p>
+
+              <h6>Credit Card</h6>
+              <p>Pay at <a href="https://oh.smartchildsupport.com" target="_blank" rel="noopener noreferrer">oh.smartchildsupport.com</a></p>
+
+              <h6>Cash via MoneyGram</h6>
+              <p>Pay at any MoneyGram retail location or online at <a href="https://moneygram.com" target="_blank" rel="noopener noreferrer">moneygram.com</a> using state code <strong>14674</strong></p>
+
+              <h5>Additional Resources</h5>
+              <ul>
+                <li><strong>State Child Support:</strong> <a href="https://jfs.ohio.gov/Ocs" target="_blank" rel="noopener noreferrer">jfs.ohio.gov/Ocs</a></li>
+                <li><strong>Customer Service Web Portal:</strong> <a href="https://jfs.ohio.gov/Ocs/CustServWebPortalWelcome2.stm" target="_blank" rel="noopener noreferrer">jfs.ohio.gov/Ocs/CustServWebPortalWelcome2.stm</a></li>
+              </ul>
+
+              <h5>Submit Documents</h5>
+              <p>Mail, drop off, fax <a href="tel:419-355-5344">(419) 355-5344</a>, or email documents to <a href="mailto:Sandusky-County-Child-Support@jfs.ohio.gov">Sandusky-County-Child-Support@jfs.ohio.gov</a></p>
+
+              <a href="/child-support" class="usa-button">Learn More</a>
+            </div>
+          </li>
+          <li>
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="public-assistance-services">
+              To access Public Assistance services
+            </button>
+            <div id="public-assistance-services" class="usa-accordion__content usa-prose">
+              <h4>Public Assistance Services</h4>
+
+              <h5>To Apply for SNAP, OWF and/or Medicaid</h5>
+              <p><strong>Online Application:</strong> <a href="https://benefits.ohio.gov" target="_blank" rel="noopener noreferrer">www.benefits.ohio.gov</a></p>
+              <p>Application is submitted online. Interviews or further contact will be by telephone and/or mail.</p>
+
+              <h5>To Apply for Medicaid</h5>
+              <p><strong>Call:</strong> <a href="tel:1-844-640-6446">1-844-640-6446</a></p>
+              <p>All follow up will be by mail.</p>
+
+              <h5>Paper Application</h5>
+              <p><strong>To receive a paper application for SNAP/OWF and/or Medicaid, call:</strong></p>
+              <ul>
+                <li><a href="tel:419-334-3891">419-334-3891</a></li>
+                <li><a href="tel:1-844-640-6446">1-844-640-6446</a></li>
+              </ul>
+
+              <p><strong>Mail completed application to:</strong></p>
+              <address>
+                2511 Countryside Dr.<br>
+                Fremont, OH 43420
+              </address>
+
+              <p><strong>Or fax to:</strong> <a href="tel:419-332-2156">419-332-2156</a></p>
+              <p>Interviews or further contact will be by telephone and/or mail.</p>
+
+              <h5>Submit Required Documents</h5>
+              <p>Required documents may be:</p>
+              <ul>
+                <li><strong>Mailed</strong> to the agency address above</li>
+                <li><strong>Emailed</strong> to <a href="mailto:SanduskyPA@jfs.ohio.gov">SanduskyPA@jfs.ohio.gov</a></li>
+                <li><strong>Faxed</strong> to <a href="tel:419-332-2156">419-332-2156</a></li>
+              </ul>
+
+              <div class="usa-alert usa-alert--info usa-alert--slim">
+                <div class="usa-alert__body">
+                  <p class="usa-alert__text">
+                    <strong>Note:</strong> No in person interviews are required to apply for or receive benefits. Interviews may be required to fulfill work activity requirements for Able Bodied Adults Without Dependents (ABAWDS) or OWF applicants/recipients.
+                  </p>
+                </div>
+              </div>
+
+              <a href="/public-assistance" class="usa-button">Learn More</a>
+            </div>
+          </li>
+          <li>
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="workforce-services">
+              To access Workforce Services
+            </button>
+            <div id="workforce-services" class="usa-accordion__content usa-prose">
+
+              <h4>Job Searching on OhioMeansJobs.com</h4>
+              <ul>
+                <li>Job searches may be completed on <a href="https://ohiomeansjobs.com" target="_blank" rel="noopener noreferrer">OhioMeansJobs.com</a> by entering job search (job title, employer name or zip code) and clicking on the blue "Search" button.</li>
+                <li>When finding a job you wish to apply for, click on the blue job title to see the full job description and how to apply.</li>
+                <li>To apply, follow the instructions within the job posting.</li>
+              </ul>
+
+              <h4>Creating a Resume</h4>
+              <p><strong>For individuals needing assistance with a resume:</strong></p>
+              <ul>
+                <li><strong>Email:</strong> <a href="mailto:OMJSandCo@jfs.ohio.gov">OMJSandCo@jfs.ohio.gov</a></li>
+                <li><strong>Include the following:</strong> Name, address, working phone number, valid email address, work & educational history</li>
+                <li>If this is too much information to provide, OhioMeansJobs.com can email you a resume template</li>
+                <li>OhioMeansJobs – Sandusky County staff will create a resume for you and email a copy to your provided email address</li>
+                <li><strong>10 hard copies</strong> will be mailed to your provided address</li>
+              </ul>
+
+              <a href="/workforce" class="usa-button">Learn More</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Support Areas -->
+    <section class="support-areas-section">
+      <div class="grid-container">
+        <h2 class="section-heading">Support Areas</h2>
+        <p class="section-description">The Public Assistance Unit offers help with day-to-day needs such as food, medical and childcare. The Child Support Enforcement Agency helps with establishing paternity, enforcement and collection of child support payments. The Public Children Services Agency oversees the protection of children and elderly, as well as foster and adoptive placements in the county. Workforce Development provides services to veterans, job seekers and employers.</p>
+
+        <div class="support-grid">
+          <!-- Medicaid Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-hospital" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Medicaid</h3>
+            <p class="support-card__description">
+              Federally funded health care program that provides assistance to certain low-income and medically vulnerable people.
+            </p>
+            <p class="support-card__phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:844-640-6446">844-640-6446</a>
+            </p>
+            <a href="/medicaid" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Food & Cash Assistance Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Food & Cash Assistance</h3>
+            <p class="support-card__description">
+              Public Assistance benefits are available to Ohioans, including food, cash, medicaid and child care.
+            </p>
+            <p class="support-card__phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:844-640-6446">844-640-6446</a>
+            </p>
+            <a href="/public-assistance" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Child Care Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-baby-carriage" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Child Care</h3>
+            <p class="support-card__description">
+              Learn about the child care process, get help paying for Child Care or become a Child Care provider.
+            </p>
+            <p class="support-card__phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:419-334-3891">419-334-3891</a>
+            </p>
+            <a href="/child-care" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Child Support Enforcement Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-gavel" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Child Support Enforcement</h3>
+            <p class="support-card__description">
+              All child support for Ohio's children goes through a CSEA. Sandusky County CSEA can accept cash, check, money orders, and credit card payments.
+            </p>
+            <a href="/child-support" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Child Protective Services Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Child Protective Services</h3>
+            <p class="support-card__description">
+              Protecting our children is important. If you suspect that a child living in Sandusky County is being abused or neglected, call immediately.
+            </p>
+            <p class="support-card__phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:419-334-8708">(419) 334-8708</a>
+            </p>
+            <a href="/child-protective-services" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Adoption & Foster Care Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-users" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Adoption & Foster Care</h3>
+            <p class="support-card__description">
+              Are you interested in becoming a foster or adoptive parent? Children Services is here to help you.
+            </p>
+            <p class="support-card__phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:419-334-8708">419-334-8708</a>
+            </p>
+            <a href="/adoption-foster" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Workforce Development Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-briefcase" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Workforce Development</h3>
+            <p class="support-card__description">
+              OhioMeansJobs - Sandusky County is a resource for veterans, job seekers and employers. Get resume help, training and financial support.
+            </p>
+            <p class="support-card__phone">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:419-332-2169">419-332-2169</a>
+            </p>
+            <a href="/workforce" class="support-card__cta">Learn more</a>
+          </article>
+
+          <!-- Job Postings Card -->
+          <article class="support-card">
+            <div class="support-card__icon">
+              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+            </div>
+            <h3 class="support-card__title">Job Postings</h3>
+            <p class="support-card__description">
+              Current job openings at Sandusky County DJFS. Information on how to apply and Sandusky County's Drug Free Workplace Policy.
+            </p>
+            <a href="/jobs" class="support-card__cta">View Openings</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="location-section">
+      <div class="grid-container">
+        <div class="grid-row grid-gap">
+          <div class="tablet:grid-col-6">
+            <h2 class="section-heading">Visit Our Office</h2>
+            <address class="usa-prose">
+              <p class="address-line">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <strong>2511 Countryside Drive, Suite A<br>Fremont, Ohio 43420</strong>
+              </p>
+              <p>
+                <i class="far fa-clock" aria-hidden="true"></i>
+                <strong>Mon to Fri:</strong> 8:00 AM – 4:30 PM
+              </p>
+              <p>
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                Phone: <a href="tel:419-334-3891">419-334-3891</a><br>
+                Toll Free: <a href="tel:1-800-883-8283">1-800-883-8283</a>
+              </p>
+              <p>
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:info@sanduskycountydjfs.org">info@sanduskycountydjfs.org</a>
+              </p>
+            </address>
+          </div>
+          <div class="tablet:grid-col-6">
+            <div class="map-container">
+              <img src="map2.png" alt="Map to Sandusky County DJFS Office" class="location-map">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+      <div class="grid-container">
+        <div class="grid-row grid-gap">
+          <div class="tablet:grid-col-6">
+            <h3>County Commissioners</h3>
+            <ul class="usa-list usa-list--unstyled">
+              <li>Russ Zimmerman</li>
+              <li>Charlie Schwochow</li>
+              <li>Scott Miller</li>
+            </ul>
+          </div>
+          <div class="tablet:grid-col-6">
+            <h3>DJFS Director</h3>
+            <p>Melanie Allen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" aria-label="Footer">
+    <div class="site-footer__main">
+      <div class="grid-container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a href="/" class="site-footer__brand-link">
+              <img src="logow.png" alt="Sandusky County Department of Job & Family Services" class="footer-logo">
+            </a>
+            <p>We provide Sandusky County residents with supportive services for public assistance, child and adult protection, and workforce development.</p>
+            <div class="site-footer__social" aria-label="Follow Sandusky County DJFS">
+              <a href="https://www.facebook.com/" class="site-footer__social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.linkedin.com/" class="site-footer__social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.youtube.com/" class="site-footer__social-link" aria-label="YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <nav class="site-footer__column" aria-label="About DJFS">
+            <h3 class="site-footer__heading">About DJFS</h3>
+            <ul class="site-footer__list">
+              <li><a href="/jobs">Job Postings</a></li>
+              <li><a href="/partners">Partners</a></li>
+              <li><a href="/bid-opportunities">Bid Opportunities</a></li>
+              <li><a href="/annual-reports">Annual Reports</a></li>
+              <li><a href="/agency-news">Agency News</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </nav>
+
+          <nav class="site-footer__column" aria-label="Support Areas">
+            <h3 class="site-footer__heading">Support Areas</h3>
+            <ul class="site-footer__list">
+              <li><a href="/public-assistance">Public Assistance</a></li>
+              <li><a href="/child-support">Child Support</a></li>
+              <li><a href="/children-services">Children Services</a></li>
+              <li><a href="/workforce">Workforce Development</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__column" aria-label="Contact details">
+            <h3 class="site-footer__heading">Contact Details</h3>
+            <ul class="site-footer__contact-list">
+              <li>
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span>2511 Countryside Dr, Suite A<br>Fremont, Ohio 43420</span>
+              </li>
+              <li>
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <a href="tel:419-334-3891">419-334-3891</a>
+              </li>
+              <li>
+                <i class="fas fa-phone-volume" aria-hidden="true"></i>
+                <a href="tel:1-800-883-8283">1-800-883-8283</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:info@sanduskycountydjfs.org">info@sanduskycountydjfs.org</a>
+              </li>
+              <li>
+                <i class="far fa-clock" aria-hidden="true"></i>
+                <span>Mon – Fri, 8:00 AM – 4:30 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <div class="grid-container">
+        <div class="site-footer__bottom-inner">
+          <p>© <span id="footerYear"></span> Sandusky County Department of Job & Family Services. All rights reserved.</p>
+          <div class="site-footer__policies">
+            <a href="/accessibility">Accessibility</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/sitemap">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Keep footer year current without additional dependencies
+    (function () {
+      var footerYear = document.getElementById('footerYear');
+      if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+
+  <!-- USWDS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.7.1/dist/js/uswds-init.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.7.1/dist/js/uswds.min.js"></script>
+
+  <!-- Header Navigation JavaScript -->
+  <script>
+    (function() {
+      // Mobile menu toggle
+      const mobileToggle = document.getElementById('mobileMenuToggle');
+      const mainNav = document.getElementById('mainNav');
+
+      if (mobileToggle && mainNav) {
+        mobileToggle.addEventListener('click', function() {
+          const isOpen = mainNav.classList.contains('open');
+          mainNav.classList.toggle('open');
+          mobileToggle.setAttribute('aria-expanded', !isOpen);
+        });
+      }
+
+      // Dropdown toggles
+      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+          // Close all other dropdowns
+          dropdownToggles.forEach(t => {
+            if (t !== this) {
+              t.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          // Toggle this dropdown
+          this.setAttribute('aria-expanded', !isExpanded);
+        });
+      });
+
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.has-dropdown')) {
+          dropdownToggles.forEach(toggle => {
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
