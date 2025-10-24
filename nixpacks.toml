@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python3"]
+
+[phases.install]
+cmds = ["echo 'No dependencies needed - static site'"]
+
+[phases.build]
+cmds = ["echo 'No build step - pure HTML/CSS/JS'"]
+
+[start]
+cmd = "python3 -m http.server ${PORT:-3000}"
