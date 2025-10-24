@@ -2,14 +2,23 @@
   "name": "sandusky-county-jfs",
   "version": "1.0.0",
   "description": "This redesign applies U.S. Web Design System (USWDS) principles and components to create a more accessible, user-friendly, and visually cohesive experience for Sandusky County Department of Job and Family Services website visitors.",
-  "main": "capture-screenshot.js",
+  "main": "index.html",
   "scripts": {
+    "start": "npx serve -s . -l 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "government",
+    "accessibility",
+    "wcag",
+    "uswds"
+  ],
+  "author": "Dustin Schwanger",
   "license": "ISC",
   "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "devDependencies": {
     "playwright": "^1.56.1"
   }
 }

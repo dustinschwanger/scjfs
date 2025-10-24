@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sandusky County Department of Job & Family Services</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon_1.ico">
+
   <!-- USWDS CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.7.1/dist/css/uswds.min.css">
 
@@ -16,6 +19,12 @@
 </head>
 <body>
 
+  <!-- Skip Navigation Link for Accessibility -->
+  <a href="#main-content" class="usa-skipnav">Skip to main content</a>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="YOUR_NONCE"></script>
 
   <!-- Header -->
   <header class="site-header">
@@ -41,23 +50,51 @@
                 <span class="dropdown-arrow">▼</span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="/public-assistance/food-cash">Food & Cash Assistance</a></li>
+                <li><a href="/public-assistance/food-assistance">Food Assistance</a></li>
                 <li><a href="/public-assistance/medicaid">Medicaid</a></li>
+                <li><a href="/public-assistance/cash-assistance">Cash Assistance</a></li>
+                <li><a href="/public-assistance/child-care">Child Care</a></li>
+                <li><a href="/public-assistance/other-services">Other Services</a></li>
+                <li><a href="/public-assistance/prc">PRC</a></li>
               </ul>
             </li>
-            <li><a href="/child-support">Child Support</a></li>
+            <li class="has-dropdown">
+              <button class="dropdown-toggle" aria-expanded="false">
+                Child Support
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/child-support/glossary">Glossary of Terms</a></li>
+                <li><a href="/child-support/warrant-list">Warrant List</a></li>
+                <li><a href="/child-support/collection-information">Collection Information</a></li>
+                <li><a href="/child-support/csea-forms">CSEA Forms</a></li>
+              </ul>
+            </li>
             <li class="has-dropdown">
               <button class="dropdown-toggle" aria-expanded="false">
                 Children Services
                 <span class="dropdown-arrow">▼</span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="/children-services/child-care">Child Care</a></li>
-                <li><a href="/children-services/protective-services">Child Protective Services</a></li>
-                <li><a href="/children-services/adoption-foster">Adoption & Foster Care</a></li>
+                <li><a href="/children-services/adult-protective">Adult Protective Services</a></li>
+                <li><a href="/children-services/child-protective">Child Protective Services</a></li>
+                <li><a href="/children-services/prospective-foster-parents">Prospective Traditional Foster/Adoptive Parents/Treatment Home</a></li>
+                <li><a href="/children-services/current-foster-parents">Current Foster/Adopt Parents</a></li>
+                <li><a href="/children-services/children-available-adoption">Children Available for Adoption</a></li>
+                <li><a href="/children-services/grandparent-kinship">Grandparent & Kinship Providers</a></li>
+                <li><a href="/children-services/emancipated-youth">Emancipated Youth</a></li>
               </ul>
             </li>
-            <li><a href="/workforce">Workforce Development</a></li>
+            <li class="has-dropdown">
+              <button class="dropdown-toggle" aria-expanded="false">
+                Workforce Development
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/workforce/ohio-means-jobs">Ohio Means Jobs – Sandusky County</a></li>
+                <li><a href="/workforce/child-care">Child Care</a></li>
+              </ul>
+            </li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
@@ -153,7 +190,8 @@
             </div>
 
             <div class="chat-widget__input">
-              <input type="text" class="chat-widget__input-field" placeholder="Type your question..." aria-label="Chat message input">
+              <label for="chat-input-field" class="sr-only">Type your message</label>
+              <input type="text" id="chat-input-field" class="chat-widget__input-field" placeholder="Type your question..." aria-label="Chat message input">
               <button class="chat-widget__send-button" aria-label="Send message">
                 <i class="fas fa-paper-plane"></i>
               </button>
@@ -248,7 +286,7 @@
               To Access Child Support Services
             </button>
             <div id="child-support-services" class="usa-accordion__content usa-prose">
-              <h4>Child Support Services</h4>
+              <h3>Child Support Services</h3>
 
               <div class="usa-alert usa-alert--info usa-alert--slim">
                 <div class="usa-alert__body">
@@ -258,10 +296,10 @@
                 </div>
               </div>
 
-              <h5>Drive-Thru Hours</h5>
+              <h4>Drive-Thru Hours</h4>
               <p><strong>Monday–Friday:</strong> 8:00 AM – 4:30 PM</p>
 
-              <h5>Contact Us</h5>
+              <h4>Contact Us</h4>
               <p>We encourage clients to reach Child Support caseworkers through:</p>
               <ul>
                 <li><strong>Call Center:</strong> <a href="tel:419-334-2909">419-334-2909</a> (Monday, Wednesday, Friday, 8:00 AM – 4:00 PM)</li>
@@ -269,23 +307,23 @@
                 <li><strong>Email:</strong> <a href="mailto:Sandusky-County-Child-Support@jfs.ohio.gov">Sandusky-County-Child-Support@jfs.ohio.gov</a></li>
               </ul>
 
-              <h5>Make a Payment</h5>
+              <h4>Make a Payment</h4>
               <p>Payments can be made through the web portal, mobile app, or at <a href="https://oh.smartchildsupport.com" target="_blank" rel="noopener noreferrer">oh.smartchildsupport.com</a>.</p>
               <p><em>Note: If you are scheduled for genetic testing, please follow the instructions sent with your testing notice.</em></p>
 
-              <h5>Children Services</h5>
+              <h4>Children Services</h4>
               <p>All Children Services clients should use the Children Services front desk and lobby. If staff is assisting another client, please wait at a safe distance and we will help you as soon as possible.</p>
 
-              <h5>Economic Impact Payments and Child Support</h5>
+              <h4>Economic Impact Payments and Child Support</h4>
               <p>If you owe child support debt, the IRS may offset your Economic Impact Payment. Spouses who do not owe child support can file an injured spouse claim.</p>
               <ul>
                 <li><a href="https://www.irs.gov/coronavirus/economic-impact-payment-information-center" target="_blank" rel="noopener noreferrer">Treasury FAQ on Economic Impact Payments</a></li>
                 <li><a href="https://www.irs.gov/forms-pubs/about-form-8379" target="_blank" rel="noopener noreferrer">IRS Form 8379 - Injured Spouse Allocation</a></li>
               </ul>
 
-              <h5>Payment Options</h5>
+              <h4>Payment Options</h4>
 
-              <h6>By Mail</h6>
+              <h5>By Mail</h5>
               <p>Send personal check, money order, or cashier's check to:</p>
               <address>
                 Ohio CSPC<br>
@@ -294,22 +332,22 @@
               </address>
               <p><em>Include your name and SETS or Social Security Number on the check.</em></p>
 
-              <h6>Online via Checking/Savings</h6>
+              <h5>Online via Checking/Savings</h5>
               <p>Pay at <a href="https://expertpay.com" target="_blank" rel="noopener noreferrer">expertpay.com</a> ($2.50 first-time registration fee)</p>
 
-              <h6>Credit Card</h6>
+              <h5>Credit Card</h5>
               <p>Pay at <a href="https://oh.smartchildsupport.com" target="_blank" rel="noopener noreferrer">oh.smartchildsupport.com</a></p>
 
-              <h6>Cash via MoneyGram</h6>
+              <h5>Cash via MoneyGram</h5>
               <p>Pay at any MoneyGram retail location or online at <a href="https://moneygram.com" target="_blank" rel="noopener noreferrer">moneygram.com</a> using state code <strong>14674</strong></p>
 
-              <h5>Additional Resources</h5>
+              <h4>Additional Resources</h4>
               <ul>
                 <li><strong>State Child Support:</strong> <a href="https://jfs.ohio.gov/Ocs" target="_blank" rel="noopener noreferrer">jfs.ohio.gov/Ocs</a></li>
                 <li><strong>Customer Service Web Portal:</strong> <a href="https://jfs.ohio.gov/Ocs/CustServWebPortalWelcome2.stm" target="_blank" rel="noopener noreferrer">jfs.ohio.gov/Ocs/CustServWebPortalWelcome2.stm</a></li>
               </ul>
 
-              <h5>Submit Documents</h5>
+              <h4>Submit Documents</h4>
               <p>Mail, drop off, fax <a href="tel:419-355-5344">(419) 355-5344</a>, or email documents to <a href="mailto:Sandusky-County-Child-Support@jfs.ohio.gov">Sandusky-County-Child-Support@jfs.ohio.gov</a></p>
 
               <a href="/child-support" class="usa-button">Learn More</a>
@@ -320,17 +358,17 @@
               To access Public Assistance services
             </button>
             <div id="public-assistance-services" class="usa-accordion__content usa-prose">
-              <h4>Public Assistance Services</h4>
+              <h3>Public Assistance Services</h3>
 
-              <h5>To Apply for SNAP, OWF and/or Medicaid</h5>
+              <h4>To Apply for SNAP, OWF and/or Medicaid</h4>
               <p><strong>Online Application:</strong> <a href="https://benefits.ohio.gov" target="_blank" rel="noopener noreferrer">www.benefits.ohio.gov</a></p>
               <p>Application is submitted online. Interviews or further contact will be by telephone and/or mail.</p>
 
-              <h5>To Apply for Medicaid</h5>
+              <h4>To Apply for Medicaid</h4>
               <p><strong>Call:</strong> <a href="tel:1-844-640-6446">1-844-640-6446</a></p>
               <p>All follow up will be by mail.</p>
 
-              <h5>Paper Application</h5>
+              <h4>Paper Application</h4>
               <p><strong>To receive a paper application for SNAP/OWF and/or Medicaid, call:</strong></p>
               <ul>
                 <li><a href="tel:419-334-3891">419-334-3891</a></li>
@@ -346,7 +384,7 @@
               <p><strong>Or fax to:</strong> <a href="tel:419-332-2156">419-332-2156</a></p>
               <p>Interviews or further contact will be by telephone and/or mail.</p>
 
-              <h5>Submit Required Documents</h5>
+              <h4>Submit Required Documents</h4>
               <p>Required documents may be:</p>
               <ul>
                 <li><strong>Mailed</strong> to the agency address above</li>
@@ -371,14 +409,14 @@
             </button>
             <div id="workforce-services" class="usa-accordion__content usa-prose">
 
-              <h4>Job Searching on OhioMeansJobs.com</h4>
+              <h3>Job Searching on OhioMeansJobs.com</h3>
               <ul>
                 <li>Job searches may be completed on <a href="https://ohiomeansjobs.com" target="_blank" rel="noopener noreferrer">OhioMeansJobs.com</a> by entering job search (job title, employer name or zip code) and clicking on the blue "Search" button.</li>
                 <li>When finding a job you wish to apply for, click on the blue job title to see the full job description and how to apply.</li>
                 <li>To apply, follow the instructions within the job posting.</li>
               </ul>
 
-              <h4>Creating a Resume</h4>
+              <h3>Creating a Resume</h3>
               <p><strong>For individuals needing assistance with a resume:</strong></p>
               <ul>
                 <li><strong>Email:</strong> <a href="mailto:OMJSandCo@jfs.ohio.gov">OMJSandCo@jfs.ohio.gov</a></li>
@@ -399,7 +437,6 @@
     <section class="support-areas-section">
       <div class="grid-container">
         <h2 class="section-heading">Support Areas</h2>
-        <p class="section-description">The Public Assistance Unit offers help with day-to-day needs such as food, medical and childcare. The Child Support Enforcement Agency helps with establishing paternity, enforcement and collection of child support payments. The Public Children Services Agency oversees the protection of children and elderly, as well as foster and adoptive placements in the county. Workforce Development provides services to veterans, job seekers and employers.</p>
 
         <div class="support-grid">
           <!-- Medicaid Card -->
@@ -415,7 +452,7 @@
               <i class="fas fa-phone" aria-hidden="true"></i>
               <a href="tel:844-640-6446">844-640-6446</a>
             </p>
-            <a href="/medicaid" class="support-card__cta">Learn more</a>
+            <a href="/medicaid" class="support-card__cta" aria-label="Learn more about Medicaid">Learn more</a>
           </article>
 
           <!-- Food & Cash Assistance Card -->
@@ -431,7 +468,7 @@
               <i class="fas fa-phone" aria-hidden="true"></i>
               <a href="tel:844-640-6446">844-640-6446</a>
             </p>
-            <a href="/public-assistance" class="support-card__cta">Learn more</a>
+            <a href="/public-assistance" class="support-card__cta" aria-label="Learn more about Food and Cash Assistance">Learn more</a>
           </article>
 
           <!-- Child Care Card -->
@@ -447,7 +484,7 @@
               <i class="fas fa-phone" aria-hidden="true"></i>
               <a href="tel:419-334-3891">419-334-3891</a>
             </p>
-            <a href="/child-care" class="support-card__cta">Learn more</a>
+            <a href="/child-care" class="support-card__cta" aria-label="Learn more about Child Care">Learn more</a>
           </article>
 
           <!-- Child Support Enforcement Card -->
@@ -459,7 +496,7 @@
             <p class="support-card__description">
               All child support for Ohio's children goes through a CSEA. Sandusky County CSEA can accept cash, check, money orders, and credit card payments.
             </p>
-            <a href="/child-support" class="support-card__cta">Learn more</a>
+            <a href="/child-support" class="support-card__cta" aria-label="Learn more about Child Support Enforcement">Learn more</a>
           </article>
 
           <!-- Child Protective Services Card -->
@@ -475,7 +512,7 @@
               <i class="fas fa-phone" aria-hidden="true"></i>
               <a href="tel:419-334-8708">(419) 334-8708</a>
             </p>
-            <a href="/child-protective-services" class="support-card__cta">Learn more</a>
+            <a href="/child-protective-services" class="support-card__cta" aria-label="Learn more about Child Protective Services">Learn more</a>
           </article>
 
           <!-- Adoption & Foster Care Card -->
@@ -491,7 +528,7 @@
               <i class="fas fa-phone" aria-hidden="true"></i>
               <a href="tel:419-334-8708">419-334-8708</a>
             </p>
-            <a href="/adoption-foster" class="support-card__cta">Learn more</a>
+            <a href="/adoption-foster" class="support-card__cta" aria-label="Learn more about Adoption and Foster Care">Learn more</a>
           </article>
 
           <!-- Workforce Development Card -->
@@ -507,7 +544,7 @@
               <i class="fas fa-phone" aria-hidden="true"></i>
               <a href="tel:419-332-2169">419-332-2169</a>
             </p>
-            <a href="/workforce" class="support-card__cta">Learn more</a>
+            <a href="/workforce" class="support-card__cta" aria-label="Learn more about Workforce Development">Learn more</a>
           </article>
 
           <!-- Job Postings Card -->
@@ -519,8 +556,106 @@
             <p class="support-card__description">
               Current job openings at Sandusky County DJFS. Information on how to apply and Sandusky County's Drug Free Workplace Policy.
             </p>
-            <a href="/jobs" class="support-card__cta">View Openings</a>
+            <a href="/jobs" class="support-card__cta" aria-label="View job openings at Sandusky County DJFS">View Openings</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview Callout -->
+    <section class="services-callout">
+      <div class="grid-container">
+        <div class="services-callout__content">
+          <div class="services-callout__icon">
+            <i class="fas fa-hands-helping" aria-hidden="true"></i>
+          </div>
+          <p class="services-callout__text">
+            The Public Assistance Unit offers help with day-to-day needs such as food, medical and childcare. The Child Support Enforcement Agency helps with establishing paternity, enforcement and collection of child support payments. The Public Children Services Agency oversees the protection of children and elderly, as well as foster and adoptive placements in the county. Workforce Development provides services to veterans, job seekers and employers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- News & Information Section -->
+    <section class="news-section">
+      <div class="grid-container">
+        <h2 class="section-heading">News & Information</h2>
+
+        <div class="news-grid">
+          <!-- Article Feed Column -->
+          <div class="news-articles">
+            <h3 class="news-articles__heading">Latest Updates</h3>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-file-alt" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h4 class="news-article__title">
+                  <a href="/news/group-home-supervisor-manager">Group Home Supervisor/Manager</a>
+                </h4>
+                <time class="news-article__date" datetime="2025-10-07">October 7, 2025</time>
+              </div>
+            </article>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-file-alt" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h4 class="news-article__title">
+                  <a href="/news/fiscal-account-clerk-2">Job Posting: Sandusky County Department of Job and Family Services Fiscal – Account Clerk 2</a>
+                </h4>
+                <time class="news-article__date" datetime="2025-10-07">October 7, 2025</time>
+              </div>
+            </article>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-file-alt" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h4 class="news-article__title">
+                  <a href="/news/im-aide-public-assistance">Job Posting: Sandusky County Department of Job and Family Services IM Aide – Public Assistance Division</a>
+                </h4>
+                <time class="news-article__date" datetime="2025-10-06">October 6, 2025</time>
+              </div>
+            </article>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-file-alt" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h4 class="news-article__title">
+                  <a href="/news/social-services-worker">Job Posting: Sandusky County Department of Job and Family Services Social Services Worker 2/3</a>
+                </h4>
+                <time class="news-article__date" datetime="2025-09-30">September 30, 2025</time>
+              </div>
+            </article>
+
+            <a href="/news" class="news-articles__view-all">View All News <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+
+          <!-- Facebook Feed Column -->
+          <div class="news-facebook">
+            <h3 class="news-facebook__heading">Follow Us on Facebook</h3>
+            <div class="news-facebook__embed">
+              <div class="fb-page"
+                data-href="https://www.facebook.com/SanduskyCoDJFS"
+                data-tabs="timeline"
+                data-width="500"
+                data-height="600"
+                data-small-header="false"
+                data-adapt-container-width="true"
+                data-hide-cover="false"
+                data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/SanduskyCoDJFS" class="fb-xfbml-parse-ignore">
+                  <a href="https://www.facebook.com/SanduskyCoDJFS">Sandusky County Department of Job and Family Services</a>
+                </blockquote>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -555,26 +690,6 @@
             <div class="map-container">
               <img src="map2.png" alt="Map to Sandusky County DJFS Office" class="location-map">
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Leadership Section -->
-    <section class="leadership-section">
-      <div class="grid-container">
-        <div class="grid-row grid-gap">
-          <div class="tablet:grid-col-6">
-            <h3>County Commissioners</h3>
-            <ul class="usa-list usa-list--unstyled">
-              <li>Russ Zimmerman</li>
-              <li>Charlie Schwochow</li>
-              <li>Scott Miller</li>
-            </ul>
-          </div>
-          <div class="tablet:grid-col-6">
-            <h3>DJFS Director</h3>
-            <p>Melanie Allen</p>
           </div>
         </div>
       </div>
@@ -701,6 +816,24 @@
 
       // Dropdown toggles
       const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+      // Function to close all dropdowns
+      function closeAllDropdowns() {
+        dropdownToggles.forEach(toggle => {
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      // Function to get dropdown menu items
+      function getDropdownItems(toggle) {
+        const parent = toggle.closest('.has-dropdown');
+        if (!parent) return [];
+        const menu = parent.querySelector('.dropdown-menu');
+        if (!menu) return [];
+        return Array.from(menu.querySelectorAll('a'));
+      }
+
+      // Click handler for dropdowns
       dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
           e.preventDefault();
@@ -715,15 +848,97 @@
 
           // Toggle this dropdown
           this.setAttribute('aria-expanded', !isExpanded);
+
+          // If opening, focus first menu item
+          if (!isExpanded) {
+            const items = getDropdownItems(this);
+            if (items.length > 0) {
+              setTimeout(() => items[0].focus(), 50);
+            }
+          }
+        });
+
+        // Keyboard navigation for dropdown toggles
+        toggle.addEventListener('keydown', function(e) {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          const items = getDropdownItems(this);
+
+          if (e.key === 'Escape' && isExpanded) {
+            // Close dropdown and return focus to toggle
+            e.preventDefault();
+            this.setAttribute('aria-expanded', 'false');
+            this.focus();
+          } else if (e.key === 'ArrowDown' && isExpanded) {
+            // Navigate to first item in dropdown
+            e.preventDefault();
+            if (items.length > 0) {
+              items[0].focus();
+            }
+          } else if (e.key === 'ArrowUp' && isExpanded) {
+            // Navigate to last item in dropdown
+            e.preventDefault();
+            if (items.length > 0) {
+              items[items.length - 1].focus();
+            }
+          }
+        });
+      });
+
+      // Keyboard navigation within dropdown menus
+      document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('keydown', function(e) {
+          const parent = this.closest('.has-dropdown');
+          if (!parent) return;
+
+          const toggle = parent.querySelector('.dropdown-toggle');
+          const items = getDropdownItems(toggle);
+          const currentIndex = items.indexOf(this);
+
+          if (e.key === 'Escape') {
+            // Close dropdown and return focus to toggle
+            e.preventDefault();
+            if (toggle) {
+              toggle.setAttribute('aria-expanded', 'false');
+              toggle.focus();
+            }
+          } else if (e.key === 'ArrowDown') {
+            // Navigate to next item (or first if at end)
+            e.preventDefault();
+            const nextIndex = (currentIndex + 1) % items.length;
+            items[nextIndex].focus();
+          } else if (e.key === 'ArrowUp') {
+            // Navigate to previous item (or last if at beginning)
+            e.preventDefault();
+            const prevIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
+            items[prevIndex].focus();
+          } else if (e.key === 'Home') {
+            // Jump to first item
+            e.preventDefault();
+            items[0].focus();
+          } else if (e.key === 'End') {
+            // Jump to last item
+            e.preventDefault();
+            items[items.length - 1].focus();
+          } else if (e.key === 'Tab') {
+            // Close dropdown when tabbing away
+            if (toggle) {
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+          }
         });
       });
 
       // Close dropdowns when clicking outside
       document.addEventListener('click', function(e) {
         if (!e.target.closest('.has-dropdown')) {
-          dropdownToggles.forEach(toggle => {
-            toggle.setAttribute('aria-expanded', 'false');
-          });
+          closeAllDropdowns();
+        }
+      });
+
+      // Close dropdowns on Escape key (global handler)
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeAllDropdowns();
         }
       });
     })();
