@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandusky County Department of Job & Family Services</title>
+  <title>Ashtabula County Department of Job & Family Services</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon_1.ico">
@@ -32,7 +32,7 @@
       <div class="site-header__inner">
         <div class="site-header__logo">
           <a href="/" title="Home">
-            <img src="logo1.png" alt="Sandusky County Department of Job & Family Services">
+            <img src="JFS_logo-transparent.png" alt="Ashtabula County Department of Job & Family Services">
           </a>
         </div>
 
@@ -91,8 +91,24 @@
                 <span class="dropdown-arrow">▼</span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="/workforce/ohio-means-jobs">Ohio Means Jobs – Sandusky County</a></li>
+                <li><a href="/workforce/ohio-means-jobs">Ohio Means Jobs – Ashtabula County</a></li>
+                <li><a href="/workforce/summer-youth">Summer Youth Work Program</a></li>
                 <li><a href="/workforce/child-care">Child Care</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <button class="dropdown-toggle" aria-expanded="false">
+                Senior & Community Services
+                <span class="dropdown-arrow">▼</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/senior-levy/about">Senior Levy</a></li>
+                <li><a href="/senior-levy/commodity-food">Commodity Supplemental Food Program</a></li>
+                <li><a href="/social-services/adult-protective">Adult Protective Services</a></li>
+                <li><a href="/social-services/title-xx">Title XX Programs</a></li>
+                <li><a href="/social-services/veteran-services">Veteran Services</a></li>
+                <li><a href="/transportation/acts">ACTS Public Transportation</a></li>
+                <li><a href="/transportation/nemt">NEMT (Non-Emergency Medical)</a></li>
               </ul>
             </li>
             <li><a href="/contact">Contact</a></li>
@@ -109,18 +125,18 @@
       <div class="grid-container">
         <div class="hero-content-wrapper">
           <div class="usa-hero__callout">
-            <p class="usa-hero__heading--alt">Committed To Helping Sandusky County</p>
+            <p class="usa-hero__heading--alt">Committed To Helping Ashtabula County</p>
             <h1 class="usa-hero__heading">
               Help Is Available For You, Your Kids, Your Family And More.
             </h1>
             <p class="hero-description">
-              The Sandusky County Department of Job and Family Services provides assistance with public benefits, child support, child protective services, foster care, adoption, and workforce development.
+              The Ashtabula County Department of Job and Family Services provides assistance with public benefits, child support, child protective services, foster care, adoption, workforce development, and senior services.
             </p>
             <div class="hero-actions">
               <a class="usa-button usa-button--big" href="#apply">Apply for Benefits</a>
-              <a class="usa-button usa-button--outline usa-button--inverse usa-button--big" href="tel:1-800-883-8283">
+              <a class="usa-button usa-button--outline usa-button--inverse usa-button--big" href="tel:800-935-0242">
                 <i class="fas fa-phone" aria-hidden="true"></i>
-                Call 1-800-883-8283
+                Call (800) 935-0242
               </a>
             </div>
           </div>
@@ -174,7 +190,7 @@
                 </div>
                 <div class="chat-message__content">
                   <div class="chat-message__bubble">
-                    You can apply for food assistance online or by calling 844-640-6446. Would you like me to guide you through the process?
+                    You can apply for food assistance online at benefits.ohio.gov or by calling (440) 998-1110. Would you like me to guide you through the process?
                   </div>
                   <div class="chat-message__time">Just now</div>
                 </div>
@@ -214,12 +230,20 @@
         const openChatButton = document.getElementById('openChatButton');
         const closeChatButton = document.getElementById('closeChatButton');
 
-        // Open chat when clicking mobile bubble
+        function isMobile() {
+          return window.innerWidth <= 640;
+        }
+
+        // Open chat when clicking bubble
         if (openChatButton) {
           openChatButton.addEventListener('click', function() {
-            chatWidget.classList.add('chat-widget--mobile-open');
+            if (isMobile()) {
+              chatWidget.classList.add('chat-widget--mobile-open');
+              document.body.style.overflow = 'hidden'; // Prevent body scroll on mobile
+            } else {
+              chatWidget.classList.add('chat-widget--desktop-open');
+            }
             openChatButton.style.display = 'none';
-            document.body.style.overflow = 'hidden'; // Prevent body scroll when chat is open
           });
         }
 
@@ -227,6 +251,7 @@
         if (closeChatButton) {
           closeChatButton.addEventListener('click', function() {
             chatWidget.classList.remove('chat-widget--mobile-open');
+            chatWidget.classList.remove('chat-widget--desktop-open');
             if (openChatButton) {
               openChatButton.style.display = 'flex';
             }
@@ -239,37 +264,30 @@
         window.addEventListener('resize', function() {
           clearTimeout(resizeTimer);
           resizeTimer = setTimeout(function() {
-            const width = window.innerWidth;
+            const wasMobileOpen = chatWidget.classList.contains('chat-widget--mobile-open');
+            const wasDesktopOpen = chatWidget.classList.contains('chat-widget--desktop-open');
 
-            // On larger screens, ensure chat is visible and button is hidden
-            if (width > 640) {
+            if (wasMobileOpen || wasDesktopOpen) {
               chatWidget.classList.remove('chat-widget--mobile-open');
+              chatWidget.classList.remove('chat-widget--desktop-open');
               if (openChatButton) {
-                openChatButton.style.display = 'none';
+                openChatButton.style.display = 'flex';
               }
               document.body.style.overflow = '';
-            } else {
-              // On mobile, ensure button is visible if chat is closed
-              if (!chatWidget.classList.contains('chat-widget--mobile-open')) {
-                if (openChatButton) {
-                  openChatButton.style.display = 'flex';
-                }
-              }
             }
           }, 250);
         });
       })();
     </script>
 
-    <!-- Report Fraud Alert -->
-    <section class="fraud-alert-section">
+    <!-- Accessibility & Language Services Banner -->
+    <section class="accessibility-notice-section">
       <div class="grid-container">
-        <div class="usa-alert usa-alert--warning usa-alert--slim">
+        <div class="usa-alert usa-alert--info">
           <div class="usa-alert__body">
-            <h2 class="usa-alert__heading">Report Fraud</h2>
+            <h2 class="usa-alert__heading">Accessibility & Language Services</h2>
             <p class="usa-alert__text">
-              The Ohio Department of Job and Family Services is committed to investigating allegations of fraud. If you suspect fraud may be occurring,
-              <a href="#fraud" class="usa-link">click here to report</a> or call <strong>(419) 334-3891</strong>. You may remain anonymous.
+              TTY/TDD users may call <strong>7-1-1</strong> for relay services. We are committed to providing accessible services and accommodations for individuals with disabilities. Bilingual services are available in Spanish. For assistance, please contact our office at <a href="tel:440-998-1110"><strong>(440) 998-1110</strong></a>.
             </p>
           </div>
         </div>
@@ -283,28 +301,20 @@
         <ul class="usa-accordion usa-accordion--bordered quick-access-list">
           <li>
             <button class="usa-accordion__button" aria-expanded="false" aria-controls="child-support-services">
-              To Access Child Support Services
+              Child Support Services
             </button>
             <div id="child-support-services" class="usa-accordion__content usa-prose">
               <h3>Child Support Services</h3>
 
-              <div class="usa-alert usa-alert--info usa-alert--slim">
-                <div class="usa-alert__body">
-                  <p class="usa-alert__text">
-                    <strong>Effective October 1, 2021:</strong> The Child Support front desk and lobby are closed to the public. All Child Support business must be conducted through the drive-thru unless you have a scheduled appointment.
-                  </p>
-                </div>
-              </div>
-
-              <h4>Drive-Thru Hours</h4>
+              <h4>Office Hours</h4>
               <p><strong>Monday–Friday:</strong> 8:00 AM – 4:30 PM</p>
 
               <h4>Contact Us</h4>
               <p>We encourage clients to reach Child Support caseworkers through:</p>
               <ul>
-                <li><strong>Call Center:</strong> <a href="tel:419-334-2909">419-334-2909</a> (Monday, Wednesday, Friday, 8:00 AM – 4:00 PM)</li>
+                <li><strong>Call Center:</strong> <a href="tel:440-994-1212">(440) 994-1212</a> (Monday–Friday, 8:00 AM – 4:30 PM)</li>
                 <li><strong>Web Portal:</strong> Message your caseworker directly at <a href="https://jfs.ohio.gov/ocs" target="_blank" rel="noopener noreferrer">jfs.ohio.gov/ocs</a></li>
-                <li><strong>Email:</strong> <a href="mailto:Sandusky-County-Child-Support@jfs.ohio.gov">Sandusky-County-Child-Support@jfs.ohio.gov</a></li>
+                <li><strong>Main Office:</strong> <a href="tel:440-998-1110">(440) 998-1110</a></li>
               </ul>
 
               <h4>Make a Payment</h4>
@@ -348,14 +358,14 @@
               </ul>
 
               <h4>Submit Documents</h4>
-              <p>Mail, drop off, fax <a href="tel:419-355-5344">(419) 355-5344</a>, or email documents to <a href="mailto:Sandusky-County-Child-Support@jfs.ohio.gov">Sandusky-County-Child-Support@jfs.ohio.gov</a></p>
+              <p>Mail, drop off, fax <a href="tel:440-998-1538">(440) 998-1538</a>, or email documents to <a href="mailto:ashtabula-verifications@jfs.ohio.gov">ashtabula-verifications@jfs.ohio.gov</a></p>
 
               <a href="/child-support" class="usa-button">Learn More</a>
             </div>
           </li>
           <li>
             <button class="usa-accordion__button" aria-expanded="false" aria-controls="public-assistance-services">
-              To Access Public Assistance services
+              Public Assistance Services
             </button>
             <div id="public-assistance-services" class="usa-accordion__content usa-prose">
               <h3>Public Assistance Services</h3>
@@ -365,31 +375,31 @@
               <p>Application is submitted online. Interviews or further contact will be by telephone and/or mail.</p>
 
               <h4>To Apply for Medicaid</h4>
-              <p><strong>Call:</strong> <a href="tel:1-844-640-6446">1-844-640-6446</a></p>
+              <p><strong>Call:</strong> <a href="tel:440-998-1110">(440) 998-1110</a> or Toll-Free: <a href="tel:800-935-0242">(800) 935-0242</a></p>
               <p>All follow up will be by mail.</p>
 
               <h4>Paper Application</h4>
               <p><strong>To receive a paper application for SNAP/OWF and/or Medicaid, call:</strong></p>
               <ul>
-                <li><a href="tel:419-334-3891">419-334-3891</a></li>
-                <li><a href="tel:1-844-640-6446">1-844-640-6446</a></li>
+                <li><a href="tel:440-998-1110">(440) 998-1110</a></li>
+                <li><a href="tel:800-935-0242">(800) 935-0242</a> (Toll-Free)</li>
               </ul>
 
               <p><strong>Mail completed application to:</strong></p>
               <address>
-                2511 Countryside Dr.<br>
-                Fremont, OH 43420
+                2924 Donahoe Drive<br>
+                Ashtabula, OH 44004
               </address>
 
-              <p><strong>Or fax to:</strong> <a href="tel:419-332-2156">419-332-2156</a></p>
+              <p><strong>Or fax to:</strong> <a href="tel:440-998-1538">(440) 998-1538</a></p>
               <p>Interviews or further contact will be by telephone and/or mail.</p>
 
               <h4>Submit Required Documents</h4>
               <p>Required documents may be:</p>
               <ul>
                 <li><strong>Mailed</strong> to the agency address above</li>
-                <li><strong>Emailed</strong> to <a href="mailto:SanduskyPA@jfs.ohio.gov">SanduskyPA@jfs.ohio.gov</a></li>
-                <li><strong>Faxed</strong> to <a href="tel:419-332-2156">419-332-2156</a></li>
+                <li><strong>Emailed</strong> to <a href="mailto:ashtabula-verifications@jfs.ohio.gov">ashtabula-verifications@jfs.ohio.gov</a></li>
+                <li><strong>Faxed</strong> to <a href="tel:440-998-1538">(440) 998-1538</a></li>
               </ul>
 
               <div class="usa-alert usa-alert--info usa-alert--slim">
@@ -405,7 +415,7 @@
           </li>
           <li>
             <button class="usa-accordion__button" aria-expanded="false" aria-controls="workforce-services">
-              To Access Workforce Services
+              Workforce Services
             </button>
             <div id="workforce-services" class="usa-accordion__content usa-prose">
               <h3>Workforce Services</h3>
@@ -420,10 +430,11 @@
               <h4>Creating a Resume</h4>
               <p><strong>For individuals needing assistance with a resume:</strong></p>
               <ul>
-                <li><strong>Email:</strong> <a href="mailto:OMJSandCo@jfs.ohio.gov">OMJSandCo@jfs.ohio.gov</a></li>
+                <li><strong>Phone:</strong> <a href="tel:440-994-1234">(440) 994-1234</a></li>
+                <li><strong>Email:</strong> <a href="mailto:ashtabula-verifications@jfs.ohio.gov">ashtabula-verifications@jfs.ohio.gov</a></li>
                 <li><strong>Include the following:</strong> Name, address, working phone number, valid email address, work & educational history</li>
                 <li>If this is too much information to provide, OhioMeansJobs.com can email you a resume template</li>
-                <li>OhioMeansJobs – Sandusky County staff will create a resume for you and email a copy to your provided email address</li>
+                <li>OhioMeansJobs – Ashtabula County staff will create a resume for you and email a copy to your provided email address</li>
                 <li><strong>10 hard copies</strong> will be mailed to your provided address</li>
               </ul>
 
@@ -441,123 +452,107 @@
 
         <div class="support-grid">
           <!-- Medicaid Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-hospital" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/medicaid.jpg');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Medicaid</h3>
+              <p class="support-card__description">
+                Federally funded health care program that provides assistance to certain low-income and medically vulnerable people.
+              </p>
+              <a href="/medicaid" class="support-card__cta" aria-label="Learn more about Medicaid">Learn more</a>
             </div>
-            <h3 class="support-card__title">Medicaid</h3>
-            <p class="support-card__description">
-              Federally funded health care program that provides assistance to certain low-income and medically vulnerable people.
-            </p>
-            <p class="support-card__phone">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <a href="tel:844-640-6446">844-640-6446</a>
-            </p>
-            <a href="/medicaid" class="support-card__cta" aria-label="Learn more about Medicaid">Learn more</a>
           </article>
 
           <!-- Food & Cash Assistance Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/food-assistance.jpg');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Food & Cash Assistance</h3>
+              <p class="support-card__description">
+                Public Assistance benefits are available to Ohioans, including food, cash, medicaid and child care.
+              </p>
+              <a href="/public-assistance" class="support-card__cta" aria-label="Learn more about Food and Cash Assistance">Learn more</a>
             </div>
-            <h3 class="support-card__title">Food & Cash Assistance</h3>
-            <p class="support-card__description">
-              Public Assistance benefits are available to Ohioans, including food, cash, medicaid and child care.
-            </p>
-            <p class="support-card__phone">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <a href="tel:844-640-6446">844-640-6446</a>
-            </p>
-            <a href="/public-assistance" class="support-card__cta" aria-label="Learn more about Food and Cash Assistance">Learn more</a>
           </article>
 
           <!-- Child Care Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-baby-carriage" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/child-care.jpg');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Child Care</h3>
+              <p class="support-card__description">
+                Learn about the child care process, get help paying for Child Care or become a Child Care provider.
+              </p>
+              <a href="/child-care" class="support-card__cta" aria-label="Learn more about Child Care">Learn more</a>
             </div>
-            <h3 class="support-card__title">Child Care</h3>
-            <p class="support-card__description">
-              Learn about the child care process, get help paying for Child Care or become a Child Care provider.
-            </p>
-            <p class="support-card__phone">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <a href="tel:419-334-3891">419-334-3891</a>
-            </p>
-            <a href="/child-care" class="support-card__cta" aria-label="Learn more about Child Care">Learn more</a>
           </article>
 
           <!-- Child Support Enforcement Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-gavel" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/child-support.png');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Child Support Enforcement</h3>
+              <p class="support-card__description">
+                All child support for Ohio's children goes through a CSEA. Ashtabula County CSEA can accept cash, check, money orders, and credit card payments.
+              </p>
+              <a href="/child-support" class="support-card__cta" aria-label="Learn more about Child Support Enforcement">Learn more</a>
             </div>
-            <h3 class="support-card__title">Child Support Enforcement</h3>
-            <p class="support-card__description">
-              All child support for Ohio's children goes through a CSEA. Sandusky County CSEA can accept cash, check, money orders, and credit card payments.
-            </p>
-            <a href="/child-support" class="support-card__cta" aria-label="Learn more about Child Support Enforcement">Learn more</a>
           </article>
 
           <!-- Child Protective Services Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/child-protective.png');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Child Protective Services</h3>
+              <p class="support-card__description">
+                Protecting our children is important. If you suspect that a child living in Ashtabula County is being abused or neglected, call immediately.
+              </p>
+              <a href="/child-protective-services" class="support-card__cta" aria-label="Learn more about Child Protective Services">Learn more</a>
             </div>
-            <h3 class="support-card__title">Child Protective Services</h3>
-            <p class="support-card__description">
-              Protecting our children is important. If you suspect that a child living in Sandusky County is being abused or neglected, call immediately.
-            </p>
-            <p class="support-card__phone">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <a href="tel:419-334-8708">(419) 334-8708</a>
-            </p>
-            <a href="/child-protective-services" class="support-card__cta" aria-label="Learn more about Child Protective Services">Learn more</a>
           </article>
 
           <!-- Adoption & Foster Care Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-users" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/adoption.png');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Adoption & Foster Care</h3>
+              <p class="support-card__description">
+                Are you interested in becoming a foster or adoptive parent? Children Services is here to help you.
+              </p>
+              <a href="/adoption-foster" class="support-card__cta" aria-label="Learn more about Adoption and Foster Care">Learn more</a>
             </div>
-            <h3 class="support-card__title">Adoption & Foster Care</h3>
-            <p class="support-card__description">
-              Are you interested in becoming a foster or adoptive parent? Children Services is here to help you.
-            </p>
-            <p class="support-card__phone">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <a href="tel:419-334-8708">419-334-8708</a>
-            </p>
-            <a href="/adoption-foster" class="support-card__cta" aria-label="Learn more about Adoption and Foster Care">Learn more</a>
           </article>
 
           <!-- Workforce Development Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-briefcase" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/workforce.png');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Workforce Development</h3>
+              <p class="support-card__description">
+                OhioMeansJobs - Ashtabula County is a resource for veterans, job seekers and employers. Get resume help, training and financial support.
+              </p>
+              <a href="/workforce" class="support-card__cta" aria-label="Learn more about Workforce Development">Learn more</a>
             </div>
-            <h3 class="support-card__title">Workforce Development</h3>
-            <p class="support-card__description">
-              OhioMeansJobs - Sandusky County is a resource for veterans, job seekers and employers. Get resume help, training and financial support.
-            </p>
-            <p class="support-card__phone">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <a href="tel:419-332-2169">419-332-2169</a>
-            </p>
-            <a href="/workforce" class="support-card__cta" aria-label="Learn more about Workforce Development">Learn more</a>
           </article>
 
           <!-- Job Postings Card -->
-          <article class="support-card">
-            <div class="support-card__icon">
-              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+          <article class="support-card support-card--image">
+            <div class="support-card__bg-image" style="background-image: url('public/job.png');"></div>
+            <div class="support-card__overlay"></div>
+            <div class="support-card__content">
+              <h3 class="support-card__title">Job Postings</h3>
+              <p class="support-card__description">
+                Current job openings at Ashtabula County DJFS. Information on how to apply and Ashtabula County's Drug Free Workplace Policy.
+              </p>
+              <a href="/jobs" class="support-card__cta" aria-label="View job openings at Ashtabula County DJFS">View Openings</a>
             </div>
-            <h3 class="support-card__title">Job Postings</h3>
-            <p class="support-card__description">
-              Current job openings at Sandusky County DJFS. Information on how to apply and Sandusky County's Drug Free Workplace Policy.
-            </p>
-            <a href="/jobs" class="support-card__cta" aria-label="View job openings at Sandusky County DJFS">View Openings</a>
           </article>
         </div>
       </div>
@@ -571,89 +566,68 @@
             <i class="fas fa-hands-helping" aria-hidden="true"></i>
           </div>
           <p class="services-callout__text">
-            The Public Assistance Unit offers help with day-to-day needs such as food, medical and childcare. The Child Support Enforcement Agency helps with establishing paternity, enforcement and collection of child support payments. The Public Children Services Agency oversees the protection of children and elderly, as well as foster and adoptive placements in the county. Workforce Development provides services to veterans, job seekers and employers.
+            The Public Assistance Unit offers help with day-to-day needs such as food, medical and childcare. The Child Support Enforcement Agency helps with establishing paternity, enforcement and collection of child support payments. The Public Children Services Agency oversees the protection of children and elderly, as well as foster and adoptive placements in the county. Workforce Development provides services to veterans, job seekers and employers. The Senior Services Levy provides vital support to residents age 60 and over. Adult Protective Services investigates abuse, neglect, and exploitation of vulnerable adults.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- News & Information Section -->
-    <section class="news-section">
+    <!-- Leadership Section -->
+    <section class="leadership-section">
       <div class="grid-container">
-        <h2 class="section-heading">News & Information</h2>
+        <h2 class="section-heading">Leadership</h2>
 
-        <div class="news-grid">
-          <!-- Article Feed Column -->
-          <div class="news-articles">
-            <h3 class="news-articles__heading">Latest Updates</h3>
-
-            <article class="news-article">
-              <div class="news-article__image">
-                <i class="fas fa-file-alt" aria-hidden="true"></i>
+        <div class="leadership-grid">
+          <!-- Executive Director -->
+          <div class="leadership-highlight">
+            <div class="leadership-card leadership-card--director">
+              <div class="leadership-card__header">
+                <div class="leadership-card__photo">
+                  <img src="Patrick-Arcaro-Executive-Director.png" alt="Patrick J. Arcaro, Executive Director" class="leadership-photo">
+                </div>
+                <div class="leadership-card__info">
+                  <h3 class="leadership-card__title">Executive Director</h3>
+                  <p class="leadership-card__name">Patrick J. Arcaro</p>
+                  <p class="leadership-card__tenure">Serving since September 2004</p>
+                </div>
               </div>
-              <div class="news-article__content">
-                <h4 class="news-article__title">
-                  <a href="/news/group-home-supervisor-manager">Group Home Supervisor/Manager</a>
-                </h4>
-                <time class="news-article__date" datetime="2025-10-07">October 7, 2025</time>
+              <div class="leadership-card__credentials">
+                <p><strong>Education:</strong></p>
+                <ul>
+                  <li>Master's in Public Administration, Cleveland State University</li>
+                  <li>Healthcare Administration Certificate</li>
+                  <li>Bachelor's in Political Science, Gannon University</li>
+                </ul>
               </div>
-            </article>
-
-            <article class="news-article">
-              <div class="news-article__image">
-                <i class="fas fa-file-alt" aria-hidden="true"></i>
-              </div>
-              <div class="news-article__content">
-                <h4 class="news-article__title">
-                  <a href="/news/fiscal-account-clerk-2">Job Posting: Sandusky County Department of Job and Family Services Fiscal – Account Clerk 2</a>
-                </h4>
-                <time class="news-article__date" datetime="2025-10-07">October 7, 2025</time>
-              </div>
-            </article>
-
-            <article class="news-article">
-              <div class="news-article__image">
-                <i class="fas fa-file-alt" aria-hidden="true"></i>
-              </div>
-              <div class="news-article__content">
-                <h4 class="news-article__title">
-                  <a href="/news/im-aide-public-assistance">Job Posting: Sandusky County Department of Job and Family Services IM Aide – Public Assistance Division</a>
-                </h4>
-                <time class="news-article__date" datetime="2025-10-06">October 6, 2025</time>
-              </div>
-            </article>
-
-            <article class="news-article">
-              <div class="news-article__image">
-                <i class="fas fa-file-alt" aria-hidden="true"></i>
-              </div>
-              <div class="news-article__content">
-                <h4 class="news-article__title">
-                  <a href="/news/social-services-worker">Job Posting: Sandusky County Department of Job and Family Services Social Services Worker 2/3</a>
-                </h4>
-                <time class="news-article__date" datetime="2025-09-30">September 30, 2025</time>
-              </div>
-            </article>
-
-            <a href="/news" class="news-articles__view-all">View All News <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
           </div>
 
-          <!-- Facebook Feed Column -->
-          <div class="news-facebook">
-            <h3 class="news-facebook__heading">Follow Us on Facebook</h3>
-            <div class="news-facebook__embed">
-              <div class="fb-page"
-                data-href="https://www.facebook.com/SanduskyCoDJFS"
-                data-tabs="timeline"
-                data-width="500"
-                data-height="600"
-                data-small-header="false"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="true">
-                <blockquote cite="https://www.facebook.com/SanduskyCoDJFS" class="fb-xfbml-parse-ignore">
-                  <a href="https://www.facebook.com/SanduskyCoDJFS">Sandusky County Department of Job and Family Services</a>
-                </blockquote>
+          <!-- Commissioners -->
+          <div class="leadership-commissioners">
+            <h3 class="commissioners-heading">Ashtabula County Commissioners</h3>
+            <div class="commissioners-grid">
+              <div class="commissioner-card">
+                <div class="commissioner-card__photo">
+                  <img src="JP-Ducro-County Commissioner.png" alt="J.P. Ducro IV, County Commissioner" class="commissioner-photo">
+                </div>
+                <p class="commissioner-card__name">J.P. Ducro IV</p>
+                <p class="commissioner-card__title">Commissioner</p>
+              </div>
+
+              <div class="commissioner-card">
+                <div class="commissioner-card__photo">
+                  <img src="Casey-Kozlowski-County Commissioner.png" alt="Casey R. Kozlowski, County Commissioner" class="commissioner-photo">
+                </div>
+                <p class="commissioner-card__name">Casey R. Kozlowski</p>
+                <p class="commissioner-card__title">Commissioner</p>
+              </div>
+
+              <div class="commissioner-card">
+                <div class="commissioner-card__photo">
+                  <img src="Kathryn-Whittington-County Commissioner.png" alt="Kathryn Whittington, County Commissioner" class="commissioner-photo">
+                </div>
+                <p class="commissioner-card__name">Kathryn Whittington</p>
+                <p class="commissioner-card__title">Commissioner</p>
               </div>
             </div>
           </div>
@@ -661,35 +635,115 @@
       </div>
     </section>
 
-    <!-- Location & Contact Section -->
-    <section class="location-section">
+    <!-- News & Contact Section -->
+    <section class="news-contact-section">
       <div class="grid-container">
-        <div class="grid-row grid-gap">
-          <div class="tablet:grid-col-6">
-            <h2 class="section-heading">Visit Our Office</h2>
-            <address class="usa-prose">
-              <p class="address-line">
-                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <strong>2511 Countryside Drive, Suite A<br>Fremont, Ohio 43420</strong>
-              </p>
-              <p>
-                <i class="far fa-clock" aria-hidden="true"></i>
-                <strong>Mon to Fri:</strong> 8:00 AM – 4:30 PM
-              </p>
-              <p>
-                <i class="fas fa-phone" aria-hidden="true"></i>
-                Phone: <a href="tel:419-334-3891">419-334-3891</a><br>
-                Toll Free: <a href="tel:1-800-883-8283">1-800-883-8283</a>
-              </p>
-              <p>
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:info@sanduskycountydjfs.org">info@sanduskycountydjfs.org</a>
-              </p>
-            </address>
+        <div class="news-contact-grid">
+          <!-- Latest Updates Column -->
+          <div class="news-updates">
+            <h2 class="section-heading">Latest Updates</h2>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h3 class="news-article__title">
+                  <a href="/news/feed-the-hope-2025">Feed the Hope 2025: One Million Meals Initiative</a>
+                </h3>
+                <time class="news-article__date" datetime="2025-01-15">January 15, 2025</time>
+              </div>
+            </article>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-tshirt" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h3 class="news-article__title">
+                  <a href="/news/warming-wall-2025">Warming Wall Initiative Expands Across Ashtabula County</a>
+                </h3>
+                <time class="news-article__date" datetime="2024-12-01">December 1, 2024</time>
+              </div>
+            </article>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-id-card" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h3 class="news-article__title">
+                  <a href="/news/free-ohio-ids">Free Ohio IDs Available for Non-Drivers</a>
+                </h3>
+                <time class="news-article__date" datetime="2024-11-10">November 10, 2024</time>
+              </div>
+            </article>
+
+            <article class="news-article">
+              <div class="news-article__image">
+                <i class="fas fa-building" aria-hidden="true"></i>
+              </div>
+              <div class="news-article__content">
+                <h3 class="news-article__title">
+                  <a href="/news/new-building-opening">New Ashtabula County JFS Building Now Open</a>
+                </h3>
+                <time class="news-article__date" datetime="2024-09-15">September 15, 2024</time>
+              </div>
+            </article>
+
+            <a href="/news" class="news-articles__view-all">View All News <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
-          <div class="tablet:grid-col-6">
-            <div class="map-container">
-              <img src="map2.png" alt="Map to Sandusky County DJFS Office" class="location-map">
+
+          <!-- Visit Our Office Column -->
+          <div class="office-contact">
+            <h2 class="section-heading">Visit Our Office</h2>
+
+            <div class="location-details">
+              <div class="location-item">
+                <div class="location-item__icon">
+                  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                </div>
+                <div class="location-item__content">
+                  <h3 class="location-item__label">Address</h3>
+                  <address>
+                    <strong>2924 Donahoe Drive<br>Ashtabula, OH 44004</strong>
+                  </address>
+                </div>
+              </div>
+
+              <div class="location-item">
+                <div class="location-item__icon">
+                  <i class="far fa-clock" aria-hidden="true"></i>
+                </div>
+                <div class="location-item__content">
+                  <h3 class="location-item__label">Hours</h3>
+                  <p><strong>Mon to Fri:</strong> 8:00 AM – 4:30 PM<br>
+                  <em>(After hours by appointment)</em></p>
+                </div>
+              </div>
+
+              <div class="location-item">
+                <div class="location-item__icon">
+                  <i class="fas fa-phone" aria-hidden="true"></i>
+                </div>
+                <div class="location-item__content">
+                  <h3 class="location-item__label">Phone</h3>
+                  <p>
+                    <a href="tel:440-998-1110">(440) 998-1110</a><br>
+                    Toll Free: <a href="tel:800-935-0242">(800) 935-0242</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="location-item">
+                <div class="location-item__icon">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                </div>
+                <div class="location-item__content">
+                  <h3 class="location-item__label">Email</h3>
+                  <p><a href="mailto:ashtabula-verifications@jfs.ohio.gov">ashtabula-verifications@jfs.ohio.gov</a></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -705,10 +759,10 @@
         <div class="site-footer__grid">
           <div class="site-footer__brand">
             <a href="/" class="site-footer__brand-link">
-              <img src="logow.png" alt="Sandusky County Department of Job & Family Services" class="footer-logo">
+              <img src="JFS_logo-transparent-white.png" alt="Ashtabula County Department of Job & Family Services" class="footer-logo">
             </a>
-            <p>We provide Sandusky County residents with supportive services for public assistance, child and adult protection, and workforce development.</p>
-            <div class="site-footer__social" aria-label="Follow Sandusky County DJFS">
+            <p>We provide Ashtabula County residents with supportive services for public assistance, child and adult protection, senior services, and workforce development.</p>
+            <div class="site-footer__social" aria-label="Follow Ashtabula County DJFS">
               <a href="https://www.facebook.com/" class="site-footer__social-link" aria-label="Facebook">
                 <i class="fab fa-facebook-f" aria-hidden="true"></i>
               </a>
@@ -748,19 +802,19 @@
             <ul class="site-footer__contact-list">
               <li>
                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <span>2511 Countryside Dr, Suite A<br>Fremont, Ohio 43420</span>
+                <span>2924 Donahoe Drive<br>Ashtabula, OH 44004</span>
               </li>
               <li>
                 <i class="fas fa-phone" aria-hidden="true"></i>
-                <a href="tel:419-334-3891">419-334-3891</a>
+                <a href="tel:440-998-1110">(440) 998-1110</a>
               </li>
               <li>
                 <i class="fas fa-phone-volume" aria-hidden="true"></i>
-                <a href="tel:1-800-883-8283">1-800-883-8283</a>
+                <a href="tel:800-935-0242">(800) 935-0242</a>
               </li>
               <li>
                 <i class="fas fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:info@sanduskycountydjfs.org">info@sanduskycountydjfs.org</a>
+                <a href="mailto:ashtabula-verifications@jfs.ohio.gov">ashtabula-verifications@jfs.ohio.gov</a>
               </li>
               <li>
                 <i class="far fa-clock" aria-hidden="true"></i>
@@ -775,7 +829,7 @@
     <div class="site-footer__bottom">
       <div class="grid-container">
         <div class="site-footer__bottom-inner">
-          <p>© <span id="footerYear"></span> Sandusky County Department of Job & Family Services. All rights reserved.</p>
+          <p>© <span id="footerYear"></span> Ashtabula County Department of Job & Family Services. All rights reserved.</p>
           <div class="site-footer__policies">
             <a href="/accessibility">Accessibility</a>
             <a href="/privacy">Privacy</a>
