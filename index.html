@@ -147,17 +147,17 @@
               <div class="chat-widget__header-content">
                 <i class="fas fa-comments chat-widget__header-icon"></i>
                 <div class="chat-widget__header-text">
-                  <h2 class="chat-widget__title">Ask Us Anything</h2>
+                  <div class="chat-widget__title" role="heading" aria-level="2">Ask Us Anything</div>
                   <p class="chat-widget__subtitle">Get instant help</p>
                 </div>
               </div>
               <div class="chat-widget__header-actions">
-                <div class="chat-widget__status">
-                  <span class="chat-widget__status-dot"></span>
+                <div class="chat-widget__status" role="status" aria-live="polite">
+                  <span class="chat-widget__status-dot" aria-hidden="true"></span>
                   <span class="chat-widget__status-text">Online</span>
                 </div>
                 <button class="chat-widget__close-button" id="closeChatButton" aria-label="Close chat">
-                  <i class="fas fa-times"></i>
+                  <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
@@ -196,8 +196,8 @@
                 </div>
               </div>
 
-              <div class="chat-widget__typing">
-                <div class="chat-typing-indicator">
+              <div class="chat-widget__typing" role="status" aria-live="polite" aria-label="Assistant is typing">
+                <div class="chat-typing-indicator" aria-hidden="true">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -209,7 +209,7 @@
               <label for="chat-input-field" class="sr-only">Type your message</label>
               <input type="text" id="chat-input-field" class="chat-widget__input-field" placeholder="Type your question..." aria-label="Chat message input">
               <button class="chat-widget__send-button" aria-label="Send message">
-                <i class="fas fa-paper-plane"></i>
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -218,8 +218,8 @@
 
       <!-- Mobile Chat Bubble -->
       <button class="chat-bubble-mobile" id="openChatButton" aria-label="Open chat">
-        <i class="fas fa-comments"></i>
-        <span class="chat-bubble-mobile__badge">1</span>
+        <i class="fas fa-comments" aria-hidden="true"></i>
+        <span class="chat-bubble-mobile__badge" aria-label="1 unread message">1</span>
       </button>
     </section>
 
@@ -281,11 +281,11 @@
     </script>
 
     <!-- Accessibility & Language Services Banner -->
-    <section class="accessibility-notice-section">
+    <section class="accessibility-notice-section" aria-labelledby="accessibility-heading">
       <div class="grid-container">
         <div class="usa-alert usa-alert--info">
           <div class="usa-alert__body">
-            <h2 class="usa-alert__heading">Accessibility & Language Services</h2>
+            <h2 class="usa-alert__heading" id="accessibility-heading">Accessibility & Language Services</h2>
             <p class="usa-alert__text">
               TTY/TDD users may call <strong>7-1-1</strong> for relay services. We are committed to providing accessible services and accommodations for individuals with disabilities. Bilingual services are available in Spanish. For assistance, please contact our office at <a href="tel:440-998-1110"><strong>(440) 998-1110</strong></a>.
             </p>
@@ -295,9 +295,9 @@
     </section>
 
     <!-- Quick Access Section -->
-    <section class="quick-access-section">
+    <section class="quick-access-section" aria-labelledby="quick-access-heading">
       <div class="grid-container">
-        <h2 class="section-heading">I Need Help With...</h2>
+        <h2 class="section-heading" id="quick-access-heading">I Need Help With...</h2>
         <ul class="usa-accordion usa-accordion--bordered quick-access-list">
           <li>
             <button class="usa-accordion__button" aria-expanded="false" aria-controls="child-support-services">
@@ -446,9 +446,9 @@
     </section>
 
     <!-- Support Areas -->
-    <section class="support-areas-section">
+    <section class="support-areas-section" aria-labelledby="support-areas-heading">
       <div class="grid-container">
-        <h2 class="section-heading">Support Areas</h2>
+        <h2 class="section-heading" id="support-areas-heading">Support Areas</h2>
 
         <div class="support-grid">
           <!-- Medicaid Card -->
@@ -559,7 +559,7 @@
     </section>
 
     <!-- Services Overview Callout -->
-    <section class="services-callout">
+    <section class="services-callout" aria-label="Services overview">
       <div class="grid-container">
         <div class="services-callout__content">
           <div class="services-callout__icon">
@@ -573,9 +573,9 @@
     </section>
 
     <!-- Leadership Section -->
-    <section class="leadership-section">
+    <section class="leadership-section" aria-labelledby="leadership-heading">
       <div class="grid-container">
-        <h2 class="section-heading">Leadership</h2>
+        <h2 class="section-heading" id="leadership-heading">Leadership</h2>
 
         <div class="leadership-grid">
           <!-- Executive Director -->
@@ -636,7 +636,7 @@
     </section>
 
     <!-- News & Contact Section -->
-    <section class="news-contact-section">
+    <section class="news-contact-section" aria-label="Latest news and contact information">
       <div class="grid-container">
         <div class="news-contact-grid">
           <!-- Latest Updates Column -->

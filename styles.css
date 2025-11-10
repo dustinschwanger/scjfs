@@ -24,6 +24,18 @@
   --usa-primary-darker: #050d18;
   --usa-accent-warm: #d4af37;
   --usa-accent-warm-dark: #b48a1f;
+
+  /* Header height for scroll-padding (WCAG 2.4.11 - Focus Not Obscured) */
+  --header-height: 100px;
+}
+
+/* Ensure sticky header doesn't obscure focused elements */
+html {
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  scroll-padding-top: var(--header-height);
 }
 
 /* ========================================
@@ -665,7 +677,7 @@
 }
 
 .chat-widget__input-field::placeholder {
-  color: #9ca3af;
+  color: #6b7280; /* Updated for WCAG 2.2 AA contrast (4.54:1 ratio) */
 }
 
 .chat-widget__send-button {
@@ -1794,12 +1806,38 @@
   text-decoration: underline;
 }
 
-/* Accessibility: Focus States */
+/* Accessibility: Focus States - WCAG 2.4.11 (Focus Appearance) Level AA */
+a:focus-visible,
+button:focus-visible,
+.usa-button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 0.125rem solid var(--county-gold);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.3);
+}
+
+/* Fallback for browsers that don't support :focus-visible */
 a:focus,
 button:focus,
-.usa-button:focus {
-  outline: 0.25rem solid var(--county-gold);
-  outline-offset: 0.25rem;
+.usa-button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 0.125rem solid var(--county-gold);
+  outline-offset: 0.125rem;
+}
+
+/* Remove focus styles for mouse/touch users when :focus-visible is supported */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+.usa-button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Mobile Menu Styles */
@@ -2104,10 +2142,20 @@ button:focus,
   align-items: center;
 }
 
+.usa-skipnav:focus-visible {
+  outline: 0.125rem solid var(--county-blue-dark);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 0.25rem rgba(10, 29, 47, 0.3);
+}
+
 .usa-skipnav:focus {
-  outline-color: var(--county-blue-dark);
-  outline-width: 0.25rem;
-  outline-offset: 0.25rem;
+  outline: 0.125rem solid var(--county-blue-dark);
+  outline-offset: 0.125rem;
+}
+
+.usa-skipnav:focus:not(:focus-visible) {
+  outline: 0.125rem solid var(--county-blue-dark);
+  outline-offset: 0.125rem;
 }
 
 /* Improved Link Accessibility */
